@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}GhostPortal - Login{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="portal-card bg-navy-dark text-light p-4 border-secondary rounded shadow-lg">
+            <div class="text-center mb-4">
+                <span class="logo-icon d-block fs-2 mb-2">🔒</span>
+                <h3 class="font-outfit fw-bold tracking-wide text-uppercase">Portal Authentication</h3>
+                <p class="text-secondary small">Enter your corporate credentials below</p>
+            </div>
+            
+            {% if form.errors %}
+                <div class="alert alert-danger border-0 bg-danger bg-opacity-25 text-white small" role="alert">
+                    Invalid username or password. Please try again.
+                </div>
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username" class="form-label text-secondary small font-outfit">Username</label>
+                    <input type="text" name="username" autofocus maxlength="150" class="form-control form-control-dark py-2 font-outfit" required id="id_username" placeholder="e.g., guest">
+                </div>
+                <div class="mb-4">
+                    <label for="id_password" class="form-label text-secondary small font-outfit">Password</label>
+                    <input type="password" name="password" class="form-control form-control-dark py-2 font-outfit" required id="id_password" placeholder="••••••••">
+                </div>
+                
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-accent py-2 font-outfit fw-bold">Sign In</button>
+                </div>
+            </form>
+            
+            <div class="border-top border-secondary my-3"></div>
+            
+            <div class="bg-navy p-3 rounded border border-secondary text-center small">
+                <span class="text-secondary">Demo Access / Testing:</span><br>
+                <code class="text-accent">username: guest</code> | <code class="text-accent">password: guest123</code>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

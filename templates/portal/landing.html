@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}GhostPortal - Employee Secure Portal{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 text-center">
+        <div class="portal-card bg-navy-dark text-light p-5 border-secondary rounded shadow">
+            <div class="mb-4">
+                <div class="display-1 logo-icon d-inline-block">👻</div>
+            </div>
+            
+            <h1 class="font-outfit fw-bold tracking-wide mb-3">
+                GHOST<span class="text-accent">PORTAL</span>
+            </h1>
+            <p class="text-secondary mb-4 fs-5 font-outfit">
+                Employee Secure Portal
+            </p>
+            
+            <div class="border-top border-secondary my-4"></div>
+            
+            <p class="small text-secondary mb-4">
+                This system is restricted to authorized personnel only. All access attempts, sessions, and operations are logged and audited.
+            </p>
+            
+            <div class="d-grid">
+                <a href="{% url 'login' %}" class="btn btn-accent btn-lg font-outfit fw-bold py-3 shadow-sm">
+                    Access Portal
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
